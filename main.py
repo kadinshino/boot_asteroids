@@ -3,6 +3,7 @@
 # throughout this file
 import pygame
 from constants import *
+from player import Player
 
 def main():
     print("Starting asteroids!")
@@ -19,6 +20,11 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
+    # Instantiate the Player object in the middle of the screen
+    player_x = SCREEN_WIDTH // 2
+    player_y = SCREEN_HEIGHT // 2
+    player = Player(player_x, player_y)
+
     # Game loop
     running = True
     while running:
@@ -31,6 +37,7 @@ def main():
 
         # Draw the game to the screen
         screen.fill((0, 0, 0))  # Fill the screen with black color
+        player.draw(screen)  # Draw the player
         pygame.display.flip()   # Refresh the screen
 
         # Control frame rate
