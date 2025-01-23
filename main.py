@@ -15,6 +15,10 @@ def main():
     # Set up the game window
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    # Create a Clock object to control frame rate
+    clock = pygame.time.Clock()
+    dt = 0
+
     # Game loop
     running = True
     while running:
@@ -28,6 +32,9 @@ def main():
         # Draw the game to the screen
         screen.fill((0, 0, 0))  # Fill the screen with black color
         pygame.display.flip()   # Refresh the screen
+
+        # Control frame rate
+        dt = clock.tick(60) / 1000  # Update delta time
 
     # Quit Pygame
     pygame.quit()
